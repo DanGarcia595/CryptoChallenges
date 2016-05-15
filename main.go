@@ -10,5 +10,8 @@ func main() {
 
 	//fmt.Println(Set1.DecryptSinglebytexor("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
 
-	fmt.Println(Set1.DetectSinglebytexor("/home/dan/data.txt"))
+	//fmt.Println(Set1.DetectSinglebytexor("/home/dan/data.txt"))
+
+	fmt.Println(Set1.Repeatingkeyxor(`Burning 'em, if you ain't quick and nimble
+I go crazy when I hear a cymbal`, "ICE"))
 }
