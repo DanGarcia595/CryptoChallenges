@@ -23,6 +23,6 @@ func main() {
 	//	plainText, _ := hex.DecodeString(Set1.Repeatingkeyxor(string(cipherText), "I Love Coke"))
 	//	fmt.Println(string(plainText))
 
-	fmt.Println(Set1.Hammingdistance([]byte("Dan"), []byte("Dan")))
+	fmt.Println(Set1.Hammingdistance([]byte("this is a test"), []byte("wokka wokka!!!")))
 
 }
