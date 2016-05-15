@@ -1,6 +1,7 @@
 package main
 
 import (
+	//	"encoding/hex"
 	"fmt"
 	"github.com/DanGarcia595/CryptoChallenges/Set1"
 )
@@ -12,7 +13,16 @@ func main() {
 
 	//fmt.Println(Set1.DetectSinglebytexor("/home/dan/data.txt"))
 
-	fmt.Println(Set1.Repeatingkeyxor(`Burning 'em, if you ain't quick and nimble
-I go crazy when I hear a cymbal`, "ICE"))
+	//	fmt.Println(Set1.Repeatingkeyxor(`Burning 'em, if you ain't quick and nimble
+	//I go crazy when I hear a cymbal`, "I Love Coke"))
+
+	//	cipherText, _ := hex.DecodeString(Set1.Repeatingkeyxor(`Burning 'em, if you ain't quick and nimble
+	//I go crazy when I hear a cymbal`, "I Love Coke"))
+
+	//	fmt.Println(string(cipherText))
+	//	plainText, _ := hex.DecodeString(Set1.Repeatingkeyxor(string(cipherText), "I Love Coke"))
+	//	fmt.Println(string(plainText))
+
+	fmt.Println(Set1.Hammingdistance([]byte("Dan"), []byte("Dan")))
 
 }
