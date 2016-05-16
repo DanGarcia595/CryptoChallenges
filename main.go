@@ -26,6 +26,10 @@ func main() {
 
 	//fmt.Println(Set1.Breakrepeatingkeyxor("/home/dan/6.txt"))
 
-	fmt.Println(Set1.DecryptAESECB("/home/dan/7.txt", "YELLOW SUBMARINE"))
+	//fmt.Println(Set1.DecryptAESECB("/home/dan/7.txt", "YELLOW SUBMARINE"))
+
+	lineNumber, lineValue := Set1.DetectECB("/home/dan/8.txt")
+
+	fmt.Println("Best Guess: ", lineNumber, " with value", lineValue)
 
 }
