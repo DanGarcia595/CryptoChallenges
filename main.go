@@ -28,8 +28,10 @@ func main() {
 
 	//fmt.Println(Set1.DecryptAESECB("/home/dan/7.txt", "YELLOW SUBMARINE"))
 
-	lineNumber, lineValue := Set1.DetectECB("/home/dan/8.txt")
+	//	lineNumber, lineValue := Set1.DetectECB("/home/dan/8.txt")
 
-	fmt.Println("Best Guess: ", lineNumber, " with value", lineValue)
+	//	fmt.Println("Best Guess: ", lineNumber, " with value", lineValue)
+
+	fmt.Println(string(Set1.PKCS7padding([]byte("DAN"), 5)))
 
 }
