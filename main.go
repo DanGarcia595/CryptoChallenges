@@ -34,5 +34,12 @@ func main() {
 
 	//IV := make([]byte, 16)
 
-	fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
+	//fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
+
+	plaintext := "This is Dan"
+	ciphertext := Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
+	fmt.Println(string(ciphertext))
+	thenewplaintext := Set1.AESECBDecryption(ciphertext, "Dan is the best.")
+
+	fmt.Println(string(thenewplaintext))
 }

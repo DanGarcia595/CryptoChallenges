@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 )
 
-func AESECB(ciphertext []byte, key string) []byte {
+func AESECBDecryption(ciphertext []byte, key string) []byte {
 	cipher, err := aes.NewCipher([]byte(key))
 	if err != nil {
 		panic(err)
@@ -32,10 +32,35 @@ func AESECB(ciphertext []byte, key string) []byte {
 	return finalplaintext[:len(finalplaintext)-5]
 }
 
+func AESECBEncryption(plaintext []byte, key string) []byte {
+	cipher, err := aes.NewCipher([]byte(key))
+	if err != nil {
+		panic(err)
+	}
+	bs := 16
+	if len(plaintext)%bs != 0 {
+		plaintext = PKCS7padding(plaintext, bs)
+	}
+	i := 0
+	ciphertext := make([]byte, len(plaintext))
+	finalciphertext := make([]byte, len(plaintext))
+	for len(plaintext) > 0 {
+		cipher.Encrypt(ciphertext, plaintext)
+		plaintext = plaintext[bs:]
+		encryptedBlock := ciphertext[:bs]
+		for index, element := range encryptedBlock {
+			finalciphertext[(i*bs)+index] = element
+		}
+		i++
+		ciphertext = ciphertext[bs:]
+	}
+	return finalciphertext
+}
+
 func DecryptAESECB(filename string, key string) (ret string) {
 	content, _ := ioutil.ReadFile(filename)
 	cipherBytes, _ := base64.StdEncoding.DecodeString(string(content))
-	plainText := AESECB(cipherBytes, key)
+	plainText := AESECBDecryption(cipherBytes, key)
 	ret = string(plainText)
 	return
 }
