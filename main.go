@@ -34,7 +34,7 @@ func main() {
 	//IV := make([]byte, 16)
 
 	//fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
-	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 	ciphertext := Set1.Encryption_oracle([]byte(plaintext))
 	Set1.DetectECB(ciphertext)
 	//fmt.Println(hex.EncodeToString(ciphertext))

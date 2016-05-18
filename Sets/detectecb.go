@@ -12,18 +12,10 @@ func Countrepeatingbytes(ciphertext []byte) (numRepeat int) {
 	bs := 16 //block size
 	var sum int = 0
 	var block, blockToCompare []byte
-	for i := 1; i < len(ciphertext)/bs; i++ {
-		if i != 0 {
-			block = ciphertext[(i-1)*bs : i*bs]
-		} else {
-			block = ciphertext[:bs]
-		}
-		for j := 1; j < len(ciphertext)/bs; j++ {
-			if j != 0 {
-				blockToCompare = ciphertext[(j-1)*bs : j*bs]
-			} else {
-				blockToCompare = ciphertext[:bs]
-			}
+	for i := 0; i < len(ciphertext)/bs; i++ {
+		block = ciphertext[(i)*bs : (i+1)*bs]
+		for j := 0; j < len(ciphertext)/bs; j++ {
+			blockToCompare = ciphertext[j*bs : (j+1)*bs]
 			for index, _ := range block {
 				sum += int(block[index] ^ blockToCompare[index])
 			}
