@@ -12,13 +12,13 @@ func Countrepeatingbytes(ciphertext []byte) (numRepeat int) {
 	bs := 16 //block size
 	var sum int = 0
 	var block, blockToCompare []byte
-	for i := 0; i < len(ciphertext)/bs; i++ {
+	for i := 1; i < len(ciphertext)/bs; i++ {
 		if i != 0 {
 			block = ciphertext[(i-1)*bs : i*bs]
 		} else {
 			block = ciphertext[:bs]
 		}
-		for j := 0; j < len(ciphertext)/bs; j++ {
+		for j := 1; j < len(ciphertext)/bs; j++ {
 			if j != 0 {
 				blockToCompare = ciphertext[(j-1)*bs : j*bs]
 			} else {
@@ -37,7 +37,7 @@ func Countrepeatingbytes(ciphertext []byte) (numRepeat int) {
 	return
 }
 
-func DetectECB(filename string) (lineNumber int, ret string) {
+func DetectECBFromFile(filename string) (lineNumber int, ret string) {
 	var bestscore int = 0
 	var tmpscore int = 0
 	file, err := os.Open(filename) // For read access.
@@ -59,6 +59,18 @@ func DetectECB(filename string) (lineNumber int, ret string) {
 			bestscore = tmpscore
 		}
 		i++
+	}
+	return
+}
+
+func DetectECB(ciphertext []byte) (ret int) {
+	score := Countrepeatingbytes(ciphertext)
+	if score > 0 {
+		fmt.Println("ECB detected. Score: ", score)
+		ret = 1
+	} else {
+		fmt.Println("No ECB found. Most likely CBC. Score: ", score)
+		ret = 0
 	}
 	return
 }
