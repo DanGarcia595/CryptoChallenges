@@ -1,8 +1,8 @@
 package main
 
 import (
-	"encoding/hex"
-	"fmt"
+	//	"encoding/hex"
+	//	"fmt"
 	"github.com/DanGarcia595/CryptoChallenges/Sets"
 )
 
@@ -34,15 +34,13 @@ func main() {
 	//IV := make([]byte, 16)
 
 	//fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
-	IV := make([]byte, 16)
 	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-	ciphertext := Set1.AESCBCEncryption([]byte(plaintext), "Dan is the best.", IV)
-	foo := Set1.DetectECB(ciphertext)
-	fmt.Println(hex.EncodeToString(ciphertext))
-	ciphertext = Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
-	foo = Set1.DetectECB(ciphertext)
-	fmt.Println(hex.EncodeToString(ciphertext))
-	thenewplaintext := Set1.AESECBDecryption(ciphertext, "Dan is the best.")
+	ciphertext := Set1.Encryption_oracle([]byte(plaintext))
+	Set1.DetectECB(ciphertext)
+	//fmt.Println(hex.EncodeToString(ciphertext))
+	//ciphertext = Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
+	//foo = Set1.DetectECB(ciphertext)
+	//fmt.Println(hex.EncodeToString(ciphertext))
+	//thenewplaintext := Set1.AESECBDecryption(ciphertext, "Dan is the best.")
 
-	fmt.Println(string(thenewplaintext), foo)
 }
