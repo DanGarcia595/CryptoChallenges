@@ -2,7 +2,9 @@ package main
 
 import (
 	//	"encoding/hex"
-	//	"fmt"
+	"encoding/base64"
+
+	"fmt"
 	"github.com/DanGarcia595/CryptoChallenges/Sets"
 )
 
@@ -34,9 +36,9 @@ func main() {
 	//IV := make([]byte, 16)
 
 	//fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
-	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-	ciphertext := Set1.Encryption_oracle([]byte(plaintext))
-	Set1.DetectECB(ciphertext)
+	//	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+	plaintext, _ := base64.StdEncoding.DecodeString("Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK")
+	fmt.Println(Set1.Byteecbdecryption(plaintext))
 	//fmt.Println(hex.EncodeToString(ciphertext))
 	//ciphertext = Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
 	//foo = Set1.DetectECB(ciphertext)
