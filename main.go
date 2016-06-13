@@ -2,9 +2,9 @@ package main
 
 import (
 	//	"encoding/hex"
-	"encoding/base64"
+	//	"encoding/base64"
 
-	"fmt"
+	//	"fmt"
 	"github.com/DanGarcia595/CryptoChallenges/Sets"
 )
 
@@ -37,8 +37,8 @@ func main() {
 
 	//fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
 	//	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-	plaintext, _ := base64.StdEncoding.DecodeString("Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK")
-	fmt.Println(Set1.Byteecbdecryption(plaintext))
+	//plaintext, _ := base64.StdEncoding.DecodeString("Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK")
+	Set1.Keqvparse("foo=bar&baz=qux&zap=zazzle")
 	//fmt.Println(hex.EncodeToString(ciphertext))
 	//ciphertext = Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
 	//foo = Set1.DetectECB(ciphertext)
