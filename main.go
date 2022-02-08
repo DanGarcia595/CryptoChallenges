@@ -5,7 +5,7 @@ import (
 	//	"encoding/base64"
 
 	//	"fmt"
-	"github.com/DanGarcia595/CryptoChallenges/Sets"
+	Set1 "CryptoChalleneges/Sets/Set1"
 )
 
 func main() {
