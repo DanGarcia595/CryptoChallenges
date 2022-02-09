@@ -1,11 +1,8 @@
 package main
 
 import (
-	//	"encoding/hex"
-	//	"encoding/base64"
-
-	//	"fmt"
-	Set1 "CryptoChalleneges/Sets/Set1"
+	"CryptoChalleneges/Sets/Set1"
+	"fmt"
 )
 
 func main() {
@@ -28,21 +25,33 @@ func main() {
 
 	//fmt.Println(Set1.DecryptAESECB("/home/dan/7.txt", "YELLOW SUBMARINE"))
 
-	//	lineNumber, lineValue := Set1.DetectECBFromFile("/home/dan/8.txt")
-	//	fmt.Println("Best Guess: ", lineNumber, " with value", lineValue)
+	//lineNumber, lineValue := Set1.DetectECBFromFile("detectecb.txt")
+	//fmt.Println("Best Guess: ", lineNumber, " with value", lineValue)
 
 	//fmt.Println(string(Set1.PKCS7padding([]byte("DAN"), 5)))
 
 	//IV := make([]byte, 16)
 
-	//fmt.Println(Set1.DecryptAESCBC("/home/dan/10.txt", "YELLOW SUBMARINE"))
-	//	plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+	//fmt.Println(Set1.DecryptAESCBC("10.txt", "YELLOW SUBMARINE"))
+	//plaintext := "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 	//plaintext, _ := base64.StdEncoding.DecodeString("Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK")
-	Set1.Keqvparse("foo=bar&baz=qux&zap=zazzle")
+	//Set1.Byteecbdecryptionharder(plaintext)
+	//Set1.Keqvparse("foo=bar&baz=qux&zap=zazzle")
 	//fmt.Println(hex.EncodeToString(ciphertext))
-	//ciphertext = Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
-	//foo = Set1.DetectECB(ciphertext)
+	//ciphertext := Set1.AESECBEncryption([]byte(plaintext), "Dan is the best.")
+	//foo := Set1.DetectECB(ciphertext)
 	//fmt.Println(hex.EncodeToString(ciphertext))
 	//thenewplaintext := Set1.AESECBDecryption(ciphertext, "Dan is the best.")
+	//plaintext := "aldkfjsdf;fjsal;kdfjsfjsaldkfjsdf;fjsal;kdfjsfjsaldkfjsdf;fjsal;kdfjsfjsaldkfjsdf;fjsal;kdfjsfjsaldkfjsdf;fjsal;kdfjsfjs"
+	//ciphertext := Set1.Encryption_oracle([]byte(plaintext))
+	//_ = Set1.DetectECB(ciphertext)
+	str, err := Set1.PKCS7paddingStrip([]byte("ICE ICE BABY\x04\x04\x04\x04"), 16)
+	if err != nil {
+		fmt.Println("bad padding")
+	} else {
+		fmt.Println(str)
+	}
+
+	//fmt.Println(Set1.PKCS7paddingStrip([]byte{}))
 
 }
